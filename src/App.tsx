@@ -33,7 +33,7 @@ import { motion, AnimatePresence, useScroll, useSpring, useTransform, useInView 
 import { useRef } from 'react';
 
 const CLINIC_NAME = "SHIV CLINIC";
-const PHONE_NUMBER = "+91 9904456426";
+const PHONE_NUMBER = "99044 56426";
 const ADDRESS = "Maa Complex, 12-A, Sadhu Vasvani Kunj Rd, Railnagar, Rajkot, Gujarat, India";
 
 const NavItem = ({ href, children, onClick }: { href: string; children: React.ReactNode; onClick?: () => void }) => (
@@ -355,7 +355,7 @@ export default function App() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-6 justify-center"
+              className="flex flex-col sm:flex-row gap-8 justify-center mb-12 sm:mb-20"
             >
               <motion.a 
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px -10px rgba(59, 130, 246, 0.5)" }}
@@ -812,7 +812,7 @@ export default function App() {
                       <input 
                         required
                         type="tel" 
-                        placeholder="+91 XXXXX XXXXX"
+                        placeholder="XXXXX XXXXX"
                         className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-200 focus:border-blue-600 focus:ring-4 focus:ring-blue-100 outline-none transition-all font-medium"
                       />
                     </div>
