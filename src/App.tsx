@@ -39,7 +39,7 @@ import { useRef } from 'react';
 const CLINIC_NAME = "SHIV CLINIC";
 const CLINIC_SUBTITLE = "An Advanced General And Homoeopathic Clinic";
 const PHONE_NUMBER = "84603 43269";
-const ADDRESS = "Radhe-Krishna Appartment, Ground Floor, Shop No.1&2, 11-Bajrangwadi, Jamnagar - Rajkot Hwy, near Bajrangwadi Circle, Rajkot, Gujarat 360006";
+const ADDRESS = "Radhe-Krishna Appartment, Ground Floor, Shop No.1&2, 11-Bajrangwadi, Jamnagar - Rajkot Hwy, near Bajrangwadi Circle, opposite RMC WaterWorks, Rajkot, Gujarat 360006";
 
 const NavItem = ({ href, children, onClick }: { href: string; children: React.ReactNode; onClick?: () => void }) => (
   <a 
@@ -980,7 +980,7 @@ export default function App() {
 
             <div className="relative h-[600px] rounded-[4rem] overflow-hidden shadow-3xl border-8 border-white group">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.873214814544!2d70.7856423150274!3d22.32064198531234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959c99666666667%3A0x1234567890abcdef!2sRailnagar%2C%20Rajkot%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1648580000000!5m2!1sen!2sin" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.669866164244!2d70.7816423150274!3d22.32264198531234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959c99666666667%3A0x1234567890abcdef!2sBajrangwadi%2C%20Rajkot%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1648580000000!5m2!1sen!2sin" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
@@ -997,7 +997,7 @@ export default function App() {
                     <p className="text-lg font-black text-slate-900">Open Now • Closes 9 PM</p>
                   </div>
                   <a 
-                    href={`https://www.google.com/maps/dir/?api=1&destination=Shiv+Clinic+Bajrangwadi+Rajkot`}
+                    href={`https://maps.app.goo.gl/99MMkPdNKbBuZDzQ8`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-blue-600 text-white px-6 py-3 rounded-2xl font-black text-sm hover:bg-blue-700 transition-all shadow-lg shadow-blue-200"
