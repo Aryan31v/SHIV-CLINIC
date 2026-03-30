@@ -1,0 +1,5 @@
+{
+  "name": "SHIV CLINIC - Compassionate Homeopathic Care",
+  "description": "Premium homeopathic clinic in Rajkot, Gujarat, offering specialized treatments for chronic diseases, skin problems, and child care.",
+  "requestFramePermissions": ["geolocation"]
+}
