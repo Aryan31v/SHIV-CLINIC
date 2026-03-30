@@ -27,14 +27,19 @@ import {
   ThumbsUp,
   Heart,
   Calendar,
-  Mail
+  Mail,
+  Bath,
+  CalendarCheck,
+  CreditCard,
+  Car
 } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useSpring, useTransform, useInView } from 'motion/react';
 import { useRef } from 'react';
 
 const CLINIC_NAME = "SHIV CLINIC";
-const PHONE_NUMBER = "99044 56426";
-const ADDRESS = "Maa Complex, 12-A, Sadhu Vasvani Kunj Rd, Railnagar, Rajkot, Gujarat, India";
+const CLINIC_SUBTITLE = "An Advanced General And Homoeopathic Clinic";
+const PHONE_NUMBER = "84603 43269";
+const ADDRESS = "Radhe-Krishna Appartment, Ground Floor, Shop No.1&2, 11-Bajrangwadi, Jamnagar - Rajkot Hwy, near Bajrangwadi Circle, Rajkot, Gujarat 360006";
 
 const NavItem = ({ href, children, onClick }: { href: string; children: React.ReactNode; onClick?: () => void }) => (
   <a 
@@ -150,18 +155,18 @@ const FadeIn = ({ children, delay = 0, direction = 'up' }: { children: React.Rea
 
 const TESTIMONIALS = [
   {
-    name: "Rajesh Patel",
-    text: "The best homeopathic treatment I've ever received. My chronic skin issue is finally gone after years of trying other medicines.",
+    name: "Truly Grateful",
+    text: "I had been struggling with my health for months, but after meeting Dr. Ravi Parmar, everything changed. His way of listening and understanding is exceptional.",
     rating: 5
   },
   {
-    name: "Anjali Sharma",
-    text: "Dr. Shiv is very patient and listens to all concerns. My daughter's immunity has improved significantly with his treatment.",
+    name: "Best General Doctor",
+    text: "My experience at the clinic has always been excellent. Dr. Ravi Parmar is very polite, knowledgeable, and gives the right treatment every time.",
     rating: 5
   },
   {
-    name: "Vikram Mehta",
-    text: "Highly professional and effective. The holistic approach really helped me manage my stress and lifestyle disorders.",
+    name: "Highly Skilled",
+    text: "Dr. Ravi Parmar provides excellent medical care with a perfect balance of deep medical knowledge and genuine patient care. Highly recommended!",
     rating: 5
   }
 ];
@@ -220,10 +225,13 @@ export default function App() {
       {/* Sticky Navbar */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-white/80 backdrop-blur-xl shadow-lg py-2' : 'bg-transparent py-4'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-lg sm:text-xl">S</div>
-            <span className="text-xl sm:text-2xl font-black tracking-tighter text-blue-900">{CLINIC_NAME}</span>
-          </div>
+            <div className="flex items-center gap-2">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-lg sm:text-xl">S</div>
+              <div className="flex flex-col">
+                <span className="text-xl sm:text-2xl font-black tracking-tighter text-blue-900 leading-none">{CLINIC_NAME}</span>
+                <span className="text-[8px] sm:text-[10px] font-bold text-blue-600 uppercase tracking-wider">{CLINIC_SUBTITLE}</span>
+              </div>
+            </div>
           
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
@@ -258,7 +266,10 @@ export default function App() {
               <div className="p-6 flex items-center justify-between border-b border-slate-100">
                 <div className="flex items-center gap-2">
                   <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">S</div>
-                  <span className="text-2xl font-black tracking-tighter text-blue-900">{CLINIC_NAME}</span>
+                  <div className="flex flex-col">
+                    <span className="text-2xl font-black tracking-tighter text-blue-900 leading-none">{CLINIC_NAME}</span>
+                    <span className="text-[10px] font-bold text-blue-600 uppercase tracking-wider">{CLINIC_SUBTITLE}</span>
+                  </div>
                 </div>
                 <button onClick={() => setIsMenuOpen(false)} className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-900">
                   <X size={24} />
@@ -326,10 +337,16 @@ export default function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/10 backdrop-blur-md text-white font-bold text-sm mb-8 border border-white/20 shadow-2xl"
+              className="flex flex-wrap justify-center gap-4 mb-8"
             >
-              <ShieldCheck size={18} className="text-emerald-400" />
-              <span className="uppercase tracking-[0.2em]">Premium Homeopathic Care</span>
+              <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/10 backdrop-blur-md text-white font-bold text-sm border border-white/20 shadow-2xl">
+                <ShieldCheck size={18} className="text-emerald-400" />
+                <span className="uppercase tracking-[0.2em]">Premium Care</span>
+              </div>
+              <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/10 backdrop-blur-md text-white font-bold text-sm border border-white/20 shadow-2xl">
+                <Users size={18} className="text-blue-400" />
+                <span className="uppercase tracking-[0.2em]">LGBTQ+ Friendly</span>
+              </div>
             </motion.div>
             
             <motion.h1 
@@ -577,6 +594,60 @@ export default function App() {
         </div>
       </section>
 
+      {/* Amenities Section */}
+      <section className="py-24 bg-slate-50 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-sm font-black text-blue-600 uppercase tracking-[0.3em] mb-4"
+            >
+              Patient Comfort
+            </motion.h2>
+            <motion.h3 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-4xl sm:text-5xl font-black text-slate-900 mb-6"
+            >
+              Clinic Amenities
+            </motion.h3>
+            <p className="text-xl text-slate-600">
+              We provide a comfortable and inclusive environment for all our patients.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
+            {[
+              { icon: Bath, title: "Restroom", desc: "Clean facilities available" },
+              { icon: Users, title: "LGBTQ+ Friendly", desc: "Safe and inclusive space" },
+              { icon: CalendarCheck, title: "Appointments", desc: "Recommended for best care" },
+              { icon: CreditCard, title: "Google Pay", desc: "Digital payments accepted" },
+              { icon: Baby, title: "Nursing Room", desc: "Private space for mothers" },
+              { icon: Car, title: "Free Parking", desc: "Lot and street parking" }
+            ].map((item, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="p-6 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center group"
+              >
+                <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                  <item.icon size={24} />
+                </div>
+                <h4 className="text-lg font-black text-slate-900 mb-1">{item.title}</h4>
+                <p className="text-slate-500 text-sm font-medium">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Doctor Profile */}
       <section id="doctor" className="py-24 bg-slate-50 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -601,11 +672,11 @@ export default function App() {
               >
                 Meet Your Healer
               </motion.h2>
-              <h3 className="text-5xl lg:text-7xl font-black text-slate-900 mb-4 tracking-tight">Dr. Shiv Kumar</h3>
+              <h3 className="text-5xl lg:text-7xl font-black text-slate-900 mb-4 tracking-tight">Dr. Ravi Parmar</h3>
               <p className="text-2xl text-teal-600 font-bold mb-10 italic">BHMS</p>
               <div className="space-y-8 text-slate-600 text-lg sm:text-xl leading-relaxed">
                 <p>
-                  With a legacy of over 15 years in clinical homeopathy, Dr. Shiv has pioneered holistic protocols that have transformed thousands of lives across Gujarat.
+                  With a legacy of clinical excellence, Dr. Ravi Parmar has pioneered holistic protocols that have transformed thousands of lives across Rajkot.
                 </p>
                 <p>
                   His philosophy merges classical homeopathic wisdom with modern physiological insights, ensuring that every treatment is as precise as it is gentle.
@@ -644,12 +715,11 @@ export default function App() {
               <h3 className="text-3xl font-black mb-10">Clinic Hours</h3>
               <div className="space-y-8">
                 <div className="flex justify-between items-center pb-6 border-b border-white/10">
-                  <span className="font-bold text-slate-400">Mon - Sat</span>
-                  <span className="text-blue-400 font-black text-lg">9:30 AM – 10:00 PM</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="font-bold text-slate-400">Sunday</span>
-                  <span className="text-emerald-400 font-black text-lg">10:00 AM – 8:00 PM</span>
+                  <span className="font-bold text-slate-400">Mon - Sun</span>
+                  <div className="text-right">
+                    <div className="text-blue-400 font-black text-lg">9:00 AM – 1:00 PM</div>
+                    <div className="text-blue-400 font-black text-lg">5:00 PM – 9:00 PM</div>
+                  </div>
                 </div>
               </div>
               <div className="mt-12 p-6 bg-white/5 rounded-2xl flex items-center gap-4 text-emerald-400 text-sm font-black border border-white/10">
@@ -765,7 +835,7 @@ export default function App() {
                     </div>
                     <div>
                       <div className="text-sm font-bold text-blue-300 uppercase tracking-widest mb-1">Visit Clinic</div>
-                      <div className="text-2xl font-black">Railnagar, Rajkot</div>
+                      <div className="text-2xl font-black">Bajrangwadi, Rajkot</div>
                     </div>
                   </div>
                 </div>
@@ -874,8 +944,7 @@ export default function App() {
                   <div>
                     <h4 className="text-xl font-black text-slate-900 mb-2">Our Location</h4>
                     <p className="text-slate-600 text-lg leading-relaxed">
-                      Shiv Clinic, Opp. Railnagar Police Chowki,<br />
-                      Railnagar, Rajkot, Gujarat 360001
+                      {ADDRESS}
                     </p>
                   </div>
                 </motion.div>
@@ -890,7 +959,7 @@ export default function App() {
                   <div>
                     <h4 className="text-xl font-black text-slate-900 mb-2">Direct Contact</h4>
                     <p className="text-slate-600 text-lg font-bold mb-1">{PHONE_NUMBER}</p>
-                    <p className="text-slate-400 text-sm font-medium">Available for calls 9 AM - 10 PM</p>
+                    <p className="text-slate-400 text-sm font-medium">Available for calls 9 AM - 9 PM</p>
                   </div>
                 </motion.div>
 
@@ -925,10 +994,10 @@ export default function App() {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-xs font-black text-blue-600 uppercase tracking-widest mb-1">Clinic Status</p>
-                    <p className="text-lg font-black text-slate-900">Open Now • Closes 10 PM</p>
+                    <p className="text-lg font-black text-slate-900">Open Now • Closes 9 PM</p>
                   </div>
                   <a 
-                    href={`https://www.google.com/maps/dir/?api=1&destination=Shiv+Clinic+Railnagar+Rajkot`}
+                    href={`https://www.google.com/maps/dir/?api=1&destination=Shiv+Clinic+Bajrangwadi+Rajkot`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-blue-600 text-white px-6 py-3 rounded-2xl font-black text-sm hover:bg-blue-700 transition-all shadow-lg shadow-blue-200"
@@ -952,7 +1021,10 @@ export default function App() {
                 <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-900/50">
                   <Heart className="text-white fill-white" size={24} />
                 </div>
-                <span className="text-3xl font-black text-white tracking-tighter">SHIV<span className="text-blue-500">CLINIC</span></span>
+                <div className="flex flex-col">
+                  <span className="text-3xl font-black text-white tracking-tighter">SHIV<span className="text-blue-500">CLINIC</span></span>
+                  <span className="text-[8px] font-bold text-blue-400 uppercase tracking-widest">{CLINIC_SUBTITLE}</span>
+                </div>
               </div>
               <p className="text-slate-400 text-lg leading-relaxed">
                 Pioneering natural healing through advanced homeopathic protocols. Trusted by thousands for holistic wellness since 2008.
